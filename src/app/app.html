@@ -1,22 +1,31 @@
-<div class="p-10 bg-blue-600 text-white text-3xl font-bold rounded-xl shadow-2xl m-5 text-center">
-  Si ce rectangle est bleu avec une ombre, Tailwind 4 fonctionne ! 🚀
-</div>
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
-
-<div class="bg-card-bg border border-border rounded-3xl p-6 shadow-sm">
-  <h3 class="text-main-text font-bold text-xl">Villa Moderne</h3>
-  <p class="text-gray-500 dark:text-gray-400">Bamako, Mali</p>
-  
-  <button class="mt-4 bg-brand text-white font-bold py-2 px-4 rounded-xl hover:bg-[--color-brand-hover] transition-all">
-    Voir les détails
-  </button>
-</div>
-
-
 <button (click)="toggleDarkMode()" class="p-2 rounded bg-gray-100 dark:bg-neutral-800">
   <!-- Icône Lucide Moon ou Sun ici -->
   <svg lucideMoon class="dark:hidden"></svg>
   <svg lucideSun class="hidden dark:block text-yellow-400"></svg>
 </button>
+
+<section class="py-16 px-6 max-w-7xl mx-auto">
+  <!-- Header de la section -->
+  <div class="flex justify-between items-end mb-12">
+    <div>
+      <h2 class="text-4xl font-black text-main-text mb-2">Biens à la une</h2>
+      <p class="text-text-muted font-medium">Découvrez nos meilleures opportunités immobilières.</p>
+    </div>
+    <button
+      class="hidden md:block text-brand font-bold border-b-2 border-brand pb-1 hover:text-brand-hover transition-all"
+    >
+      Tout explorer
+    </button>
+  </div>
+
+  <!-- La Grille -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    @for (item of properties(); track item.id) {
+      <app-property-card [property]="item" (toggleFavorite)="handleFavorite($event)"></app-property-card>
+    } @empty {
+      <div class="col-span-full text-center py-20 bg-gray-50 rounded-3xl">
+        <p class="text-gray-400">Aucun bien ne correspond à votre recherche.</p>
+      </div>
+    }
+  </div>
+</section>
