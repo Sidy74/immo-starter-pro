@@ -4,3 +4,19 @@
 <h1 class="text-3xl font-bold underline">
   Hello world!
 </h1>
+
+<div class="bg-card-bg border border-border rounded-3xl p-6 shadow-sm">
+  <h3 class="text-main-text font-bold text-xl">Villa Moderne</h3>
+  <p class="text-gray-500 dark:text-gray-400">Bamako, Mali</p>
+  
+  <button class="mt-4 bg-brand text-white font-bold py-2 px-4 rounded-xl hover:bg-[--color-brand-hover] transition-all">
+    Voir les détails
+  </button>
+</div>
+
+
+<button (click)="toggleDarkMode()" class="p-2 rounded bg-gray-100 dark:bg-neutral-800">
+  <!-- Icône Lucide Moon ou Sun ici -->
+  <svg lucideMoon class="dark:hidden"></svg>
+  <svg lucideSun class="hidden dark:block text-yellow-400"></svg>
+</button>
