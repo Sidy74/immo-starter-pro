@@ -7,6 +7,7 @@ import { PropertyCard } from '../property-card/property-card.component';
 import { LucideMap } from '@lucide/angular';
 import { SectionContainerComponent } from '../../../components/section-container/section-container.component';
 import { forkJoin } from 'rxjs';
+import { NavigationService } from '../../services/navigation.service';
 
 @Component({
   selector: 'app-property-list',
@@ -39,30 +40,48 @@ export class PropertyList {
   showAdvanced = signal(false);
   isLoading = signal(false);
 
-  viewMode = signal<'grid' | 'map'>('grid');
+  // --- LOGIQUE DE FILTRAGE CENTRALISÉE ---
+  private applyFilters(p: Property): boolean {
+    const query = this.searchQuery().toLowerCase().trim();
+    const cat = this.selectedCategory();
+    const price = this.maxPrice();
+    const beds = this.minBeds();
+
+    const matchesSearch =
+      !query || p.title.toLowerCase().includes(query) || p.location.toLowerCase().includes(query);
+    const matchesCategory = cat === 'All' || p.category === cat;
+    const matchesPrice = p.price <= price;
+    const matchesBeds = p.beds >= beds;
+
+    return matchesSearch && matchesCategory && matchesPrice && matchesBeds;
+  } // --- SIGNAUX CALCULÉS (RÉACTIFS) ---
+
+  // 1. Filtrage pour la section Récents
+  filteredRecent = computed(() => this.recentProperties().filter((p) => this.applyFilters(p)));
+
+  // 2. Filtrage pour la section Populaires
+  filteredPopular = computed(() => this.mostLikedProperties().filter((p) => this.applyFilters(p)));
+
+  // 3. Filtrage pour le Catalogue complet
+  filteredProperties = computed(() => this.properties().filter((p) => this.applyFilters(p)));
+
+  public navService: NavigationService = inject(NavigationService);
 
   updateSearch(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.searchQuery.set(value);
   }
-  filteredProperties = computed(() => {
-    return this.properties().filter((p) => {
-      const matchesSearch =
-        p.title.toLowerCase().includes(this.searchQuery().toLowerCase()) ||
-        p.location.toLowerCase().includes(this.searchQuery().toLowerCase());
-      const matchesCategory =
-        this.selectedCategory() === 'All' || p.category === this.selectedCategory();
 
-      // Nouveaux critères
-      const matchesPrice = p.price <= this.maxPrice();
-      const matchesBeds = p.beds >= this.minBeds();
-
-      return matchesSearch && matchesCategory && matchesPrice && matchesBeds;
-    });
-  });
   updatePrice(event: Event) {
     this.maxPrice.set(Number((event.target as HTMLInputElement).value));
   }
+  
+  hasActiveFilters = computed(() => {
+  return this.searchQuery().trim() !== '' || 
+         this.selectedCategory() !== 'All' || 
+         this.maxPrice() < 1000000 || 
+         this.minBeds() > 0;
+});
 
   resetFilters() {
     this.searchQuery.set('');
@@ -78,12 +97,12 @@ export class PropertyList {
     this.loadProperties();
   }
   // Méthode réutilisable
-getSkeletonCount(properties: any[]): number {
-  const count = properties.length;
-  // Si vide (chargement), on affiche 3 ou 4 pour remplir l'espace
-  // Sinon on plafonne à 10
-  return count > 0 ? Math.min(count, 10) : 5;
-}
+  getSkeletonCount(properties: any[]): number {
+    const count = properties.length;
+    // Si vide (chargement), on affiche 3 ou 4 pour remplir l'espace
+    // Sinon on plafonne à 10
+    return count > 0 ? Math.min(count, 10) : 5;
+  }
 
   loadProperties() {
     this.isLoading.set(true);
