@@ -1,31 +1,65 @@
-<button (click)="toggleDarkMode()" class="p-2 rounded bg-gray-100 dark:bg-neutral-800">
-  <!-- Icône Lucide Moon ou Sun ici -->
-  <svg lucideMoon class="dark:hidden"></svg>
-  <svg lucideSun class="hidden dark:block text-yellow-400"></svg>
-</button>
+<!-- Bouton Dark Mode (Positionné en haut à droite souvent) -->
+<div class="fixed top-6 right-6 z-50">
+  <button
+    (click)="toggleDarkMode()"
+    class="p-3 rounded-2xl bg-card-bg border border-border shadow-sm hover:scale-110 transition-all active:scale-90"
+  >
+    <svg lucideMoon class="w-5 h-5 dark:hidden text-main-text"></svg>
+    <svg lucideSun class="w-5 h-5 hidden dark:block text-yellow-400"></svg>
+  </button>
+</div>
 
-<section class="py-16 px-6 max-w-7xl mx-auto">
-  <!-- Header de la section -->
-  <div class="flex justify-between items-end mb-12">
-    <div>
-      <h2 class="text-4xl font-black text-main-text mb-2">Biens à la une</h2>
-      <p class="text-text-muted font-medium">Découvrez nos meilleures opportunités immobilières.</p>
+<main class="max-w-7xl mx-auto px-4 pt-24 pb-12">
+  <app-filter-section
+    [(searchQuery)]="searchQuery"
+    [(selectedCategory)]="selectedCategory"
+    [(maxPrice)]="maxPrice"
+    [(minBeds)]="minBeds"
+    [(viewMode)]="viewMode"
+  />
+
+  @if (viewMode() === 'grid') {
+    <!-- GRILLE -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      @for (p of filteredProperties(); track p.id) {
+        <app-property-card [property]="p" (toggleFavorite)="handleFavorite($event)" />
+      } @empty {
+        <div class="col-span-full py-24 text-center">
+          <div
+            class="bg-card-bg border border-border w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+          >
+            <svg lucideSearchX class="w-10 h-10 text-text-muted opacity-20"></svg>
+          </div>
+          <h3 class="text-xl font-bold text-main-text mb-2">No results found</h3>
+          <p class="text-text-muted">Try adjusting your filters or search terms.</p>
+        </div>
+      }
     </div>
-    <button
-      class="hidden md:block text-brand font-bold border-b-2 border-brand pb-1 hover:text-brand-hover transition-all"
+  } @else {
+    <!-- Conteneur pour la future carte -->
+    <div
+      class="w-full h-[600px] rounded-[2.5rem] overflow-hidden border border-border bg-card-bg shadow-inner flex items-center justify-center animate-in zoom-in-95 duration-300"
     >
-      Tout explorer
-    </button>
-  </div>
-
-  <!-- La Grille -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    @for (item of properties(); track item.id) {
-      <app-property-card [property]="item" (toggleFavorite)="handleFavorite($event)"></app-property-card>
-    } @empty {
-      <div class="col-span-full text-center py-20 bg-gray-50 rounded-3xl">
-        <p class="text-gray-400">Aucun bien ne correspond à votre recherche.</p>
+      <div class="text-center">
+        <svg lucideMap class="w-12 h-12 mx-auto text-brand mb-4 opacity-50"></svg>
+        <p class="text-text-muted font-bold">Map initialization...</p>
       </div>
+    </div>
+  }
+</main>
+
+<!-- Bouton Flottant Mobile pour la Map
+<div class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-[60]">
+  <button 
+    (click)="viewMode.set(viewMode() === 'grid' ? 'map' : 'grid')"
+    class="flex items-center gap-2 bg-main-text text-white px-6 py-3.5 rounded-full shadow-2xl font-bold text-sm active:scale-90 transition-all border border-white/10"
+  >
+    @if (viewMode() === 'grid') {
+      <svg lucideMap class="w-4 h-4"></svg>
+      Afficher la carte
+    } @else {
+      <svg lucideLayoutGrid class="w-4 h-4"></svg>
+      Afficher la liste
     }
-  </div>
-</section>
+  </button>
+</div> -->
