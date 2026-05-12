@@ -9,7 +9,11 @@
     "sqft": 1000,
     "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Land"
+    "category": "Land",
+    "coordinates": {
+      "lat": 12.6392,
+      "lng": -8.0029
+    }
   },
   {
     "id": 201,
@@ -21,7 +25,11 @@
     "sqft": 800,
     "image": "https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Villa"
+    "category": "Villa",
+    "coordinates": {
+      "lat": 12.675,
+      "lng": -7.925
+    }
   },
   {
     "id": 202,
@@ -34,7 +42,11 @@
     "image": "https://images.unsplash.com/photo-1493246507139-91e8bef99c1e?auto=format&fit=crop&q=80&w=800",
     "type": "Rent",
     "category": "Apartment",
-    "period": "month"
+    "period": "month",
+    "coordinates": {
+      "lat": 12.6333,
+      "lng": -7.9833
+    }
   },
   {
     "id": 203,
@@ -46,6 +58,10 @@
     "sqft": 280,
     "image": "https://images.unsplash.com/photo-1513584684374-8bdb7483fe8f?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Villa"
+    "category": "Villa",
+    "coordinates": {
+      "lat": 12.6585,
+      "lng": -8.0312
+    }
   }
 ]

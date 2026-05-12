@@ -1,11 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { LucideMoon, LucideSun } from '@lucide/angular';
 import { PropertyList } from './shared/components/property-list/property-list.component';
-import { NavigationComponent } from "./components/navigation.component/navigation.component";
+import { NavigationComponent } from './components/navigation.component/navigation.component';
 
 @Component({
   selector: 'app-root',
-  imports: [LucideSun, LucideMoon, PropertyList, NavigationComponent],
+  imports: [PropertyList, NavigationComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

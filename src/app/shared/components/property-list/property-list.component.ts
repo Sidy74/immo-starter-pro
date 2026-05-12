@@ -4,10 +4,10 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Property } from '../../models/property.model';
 import { FilterSection } from '../../../components/filter-section/filter-section';
 import { PropertyCard } from '../property-card/property-card.component';
-import { LucideMap } from '@lucide/angular';
 import { SectionContainerComponent } from '../../../components/section-container/section-container.component';
 import { forkJoin } from 'rxjs';
 import { NavigationService } from '../../services/navigation.service';
+import { MapView } from '../../../components/map-view.component/map-view.component';
 
 @Component({
   selector: 'app-property-list',
@@ -16,10 +16,10 @@ import { NavigationService } from '../../services/navigation.service';
     CommonModule,
     FilterSection,
     PropertyCard,
-    LucideMap,
     PropertyCard,
     FilterSection,
     SectionContainerComponent,
+    MapView,
   ],
   templateUrl: './property-list.component.html',
 })
@@ -39,6 +39,8 @@ export class PropertyList {
   minBeds = signal<number>(0);
   showAdvanced = signal(false);
   isLoading = signal(false);
+
+  public navService: NavigationService = inject(NavigationService);
 
   // --- LOGIQUE DE FILTRAGE CENTRALISÉE ---
   private applyFilters(p: Property): boolean {
@@ -65,7 +67,6 @@ export class PropertyList {
   // 3. Filtrage pour le Catalogue complet
   filteredProperties = computed(() => this.properties().filter((p) => this.applyFilters(p)));
 
-  public navService: NavigationService = inject(NavigationService);
 
   updateSearch(event: Event) {
     const value = (event.target as HTMLInputElement).value;
@@ -75,13 +76,15 @@ export class PropertyList {
   updatePrice(event: Event) {
     this.maxPrice.set(Number((event.target as HTMLInputElement).value));
   }
-  
+
   hasActiveFilters = computed(() => {
-  return this.searchQuery().trim() !== '' || 
-         this.selectedCategory() !== 'All' || 
-         this.maxPrice() < 1000000 || 
-         this.minBeds() > 0;
-});
+    return (
+      this.searchQuery().trim() !== '' ||
+      this.selectedCategory() !== 'All' ||
+      this.maxPrice() < 1000000 ||
+      this.minBeds() > 0
+    );
+  });
 
   resetFilters() {
     this.searchQuery.set('');

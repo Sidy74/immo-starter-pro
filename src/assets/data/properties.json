@@ -9,7 +9,11 @@
     "sqft": 350,
     "image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Villa"
+    "category": "Villa",
+    "coordinates": {
+      "lat": 12.61,
+      "lng": -8.06
+    }
   },
   {
     "id": 2,
@@ -22,7 +26,11 @@
     "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=800",
     "type": "Rent",
     "category": "Apartment",
-    "period": "month"
+    "period": "month",
+    "coordinates": {
+      "lat": 12.628,
+      "lng": -8.02
+    }
   },
   {
     "id": 3,
@@ -34,9 +42,13 @@
     "sqft": 500,
     "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Villa"
+    "category": "Villa",
+    "coordinates": {
+      "lat": 14.35,
+      "lng": -3.61
+    }
   },
-  
+
   {
     "id": 6,
     "title": "Sunset View Residence",
@@ -48,6 +60,10 @@
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
     "type": "Rent",
     "category": "Villa",
-    "period": "night"
+    "period": "night",
+    "coordinates": {
+      "lat": 12.585,
+      "lng": -7.985
+    }
   }
 ]
