@@ -8,10 +8,19 @@ import {
   LucideBedDouble,
 } from '@lucide/angular';
 import { Property } from '../../models/property.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-property-card',
-  imports: [LucideMapPin, LucideHeart, LucideBath, DecimalPipe, LucideBedDouble, LucideMaximize],
+  imports: [
+    LucideMapPin,
+    LucideHeart,
+    LucideBath,
+    DecimalPipe,
+    LucideBedDouble,
+    LucideMaximize,
+    RouterLink,
+  ],
   templateUrl: './property-card.component.html',
   styles: ``,
 })

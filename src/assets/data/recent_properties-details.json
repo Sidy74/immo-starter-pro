@@ -1,0 +1,122 @@
+[
+  {
+    "id": 4,
+    "title": "Minimalist Studio",
+    "location": "Hamdallaye ACI, Bamako",
+    "price": 450,
+    "beds": 1,
+    "baths": 1,
+    "sqft": 45,
+    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800"
+    ],
+    "type": "Rent",
+    "category": "Apartment",
+    "period": "night",
+    "description": "Un studio compact et élégant au cœur du quartier des affaires. Idéal pour les voyageurs solos ou les séjours professionnels de courte durée. Design épuré avec finitions modernes.",
+    "amenities": ["WiFi Fibre", "Climatisation", "Smart Lock", "Ménage inclus"],
+    "agent": {
+      "name": "Aminata Traoré",
+      "phone": "+223 70 00 00 01",
+      "image": "https://i.pravatar.cc/150?u=ami",
+      "verified": true
+    },
+    "coordinates": { "lat": 12.6285, "lng": -8.025 }
+  },
+  {
+    "id": 11,
+    "title": "Residence Fleuve Niger",
+    "location": "Cité du Niger, Bamako",
+    "price": 3500,
+    "beds": 4,
+    "baths": 4,
+    "sqft": 300,
+    "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1600607687940-c52af04657b0?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800"
+    ],
+    "type": "Rent",
+    "category": "Apartment",
+    "period": "month",
+    "rating": 4.9,
+    "isFavorite": true,
+    "description": "Penthouse de prestige offrant une vue panoramique imprenable sur le fleuve Niger. Situé dans une zone ultra-sécurisée, ce bien allie luxe absolu et confort technologique.",
+    "amenities": ["River View", "Security 24/7", "Gym", "Infinity Pool", "Garage privé"],
+    "agent": {
+      "name": "Moussa Diarra",
+      "phone": "+223 60 00 00 11",
+      "image": "https://i.pravatar.cc/150?u=moussa",
+      "verified": true
+    },
+    "yearBuilt": 2025,
+    "coordinates": { "lat": 12.631, "lng": -7.988 }
+  },
+  {
+    "id": 15,
+    "title": "Château de Sébénikoro",
+    "location": "Sébénikoro Nord, Bamako",
+    "price": 420000,
+    "beds": 8,
+    "baths": 6,
+    "sqft": 700,
+    "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800"
+    ],
+    "type": "Sale",
+    "category": "Villa",
+    "rating": 5.0,
+    "isFavorite": true,
+    "description": "Une demeure d'exception pour les acheteurs les plus exigeants. Ce palais moderne dispose d'un jardin luxuriant, d'une piscine olympique et d'un système domotique complet.",
+    "amenities": ["Cinema Room", "Infinity Pool", "Wine Cellar", "Solar Power", "Borehole"],
+    "agent": {
+      "name": "Fatoumata Kouyaté",
+      "phone": "+223 75 00 00 15",
+      "image": "https://i.pravatar.cc/150?u=fatou",
+      "verified": true
+    },
+    "yearBuilt": 2025,
+    "coordinates": { "lat": 12.605, "lng": -8.07 }
+  },
+  {
+    "id": 17,
+    "title": "Eco-Lodge Siby",
+    "location": "Monts Manding, Siby",
+    "price": 150,
+    "beds": 2,
+    "baths": 1,
+    "sqft": 90,
+    "image": "https://images.unsplash.com/photo-1449156001437-3a1f93977c31?auto=format&fit=crop&q=80&w=800",
+    "images": [
+      "https://images.unsplash.com/photo-1449156001437-3a1f93977c31?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&q=80&w=800",
+      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800"
+    ],
+    "type": "Rent",
+    "category": "Villa",
+    "period": "night",
+    "rating": 4.8,
+    "isFavorite": true,
+    "description": "Évadez-vous dans cet éco-lodge niché au cœur des montagnes de Siby. Architecture bioclimatique utilisant des matériaux locaux pour une expérience naturelle unique.",
+    "amenities": ["Nature View", "Solar Energy", "Fire Pit", "Hiking Access"],
+    "agent": {
+      "name": "Boubacar Sidibé",
+      "phone": "+223 65 00 00 17",
+      "image": "https://i.pravatar.cc/150?u=bouba",
+      "verified": false
+    },
+    "yearBuilt": 2023,
+    "coordinates": { "lat": 12.385, "lng": -8.321 }
+  }
+]
