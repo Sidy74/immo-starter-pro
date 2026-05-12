@@ -6,7 +6,6 @@ import { filter, map } from 'rxjs';
 import {
   LucideArrowLeft,
   LucideCalendarCheck,
-  LucideHouse,
   LucideMoon,
   LucideSun,
 } from '@lucide/angular';
@@ -14,7 +13,7 @@ import {
 @Component({
   selector: 'app-detail-navbar',
   standalone: true,
-  imports: [LucideMoon, LucideSun, LucideCalendarCheck, LucideHouse, LucideArrowLeft],
+  imports: [LucideMoon, LucideSun, LucideCalendarCheck, LucideArrowLeft],
   templateUrl: './detail-navbar.component.html',
 })
 export class DetailNavbarComponent {

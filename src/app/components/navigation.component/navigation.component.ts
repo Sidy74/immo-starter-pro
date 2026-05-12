@@ -10,7 +10,7 @@ import {
   LucideBell,
 } from '@lucide/angular';
 import { NavigationService } from '../../shared/services/navigation.service';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -25,8 +25,7 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
     LucideMap,
     LucideMoon,
     RouterLink,
-    RouterLinkActive,
-],
+  ],
   templateUrl: './navigation.component.html',
 })
 export class NavigationComponent {
