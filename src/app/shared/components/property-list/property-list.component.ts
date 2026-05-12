@@ -68,6 +68,12 @@ export class PropertyList {
   filteredProperties = computed(() => this.properties().filter((p) => this.applyFilters(p)));
 
 
+  allProperties = computed(() => [
+  ...this.filteredRecent(),
+  ...this.filteredPopular(),
+  ...this.filteredProperties()
+]);
+
   updateSearch(event: Event) {
     const value = (event.target as HTMLInputElement).value;
     this.searchQuery.set(value);
