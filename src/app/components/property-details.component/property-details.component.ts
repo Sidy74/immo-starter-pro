@@ -6,15 +6,43 @@ import { DecimalPipe } from '@angular/common';
 import { MapView } from '../map-view.component/map-view.component';
 import { HttpClient } from '@angular/common/http';
 import { forkJoin } from 'rxjs';
-import { DetailNavbarComponent } from "../detail-navbar/detail-navbar.component";
+import { DetailNavbarComponent } from '../detail-navbar/detail-navbar.component';
+import {
+  LucideArrowLeft,
+  LucideArrowRight,
+  LucideChevronLeft,
+  LucideChevronRight,
+  LucideMapPin,
+  LucideMaximize2,
+  LucideMessageCircle,
+  LucideMinimize2,
+  LucideX,
+} from '@lucide/angular';
 
 @Component({
   selector: 'app-property-details',
   templateUrl: './property-details.component.html',
-  imports: [PropertyCard, DecimalPipe, MapView, DetailNavbarComponent],
+  imports: [
+    PropertyCard,
+    DecimalPipe,
+    MapView,
+    DetailNavbarComponent,
+    LucideMessageCircle,
+    LucideMapPin,
+    LucideX,
+    LucideChevronLeft,
+    LucideChevronRight,
+    LucideArrowLeft,
+    LucideMaximize2,
+    LucideMinimize2,
+    LucideArrowRight,
+  ],
 })
 export class PropertyDetailsComponent implements OnInit {
   private http = inject(HttpClient);
+  showLightbox = signal(false);
+  currentImageIndex = signal(0);
+  isMapMaximized = signal(false);
 
   private route = inject(ActivatedRoute);
   //   private propertyService = inject(PropertyService);
@@ -35,64 +63,62 @@ export class PropertyDetailsComponent implements OnInit {
   });
   similarProperties = signal<PropertyDetails[]>([]);
 
-
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    setTimeout(() => {
-          forkJoin({
-            recent: this.http.get<PropertyDetails[]>('assets/data/recent_properties-details.json'),
-            // popular: this.http.get<PropertyDetails[]>('assets/data/popular_properties-details.json'),
-            // all: this.http.get<PropertyDetails[]>('assets/data/properties-details.json'),
-          }).subscribe({
-            next: (results) => {
-              // Mise à jour de tes signaux respectifs
-              this.property.set(results.recent[id ? parseInt(id) - 1 : 0]); // Exemple de sélection d'une propriété
-            //   this.mostLikedProperties.set(results.popular);
-            console.log(results);
-            
-            //   this.properties.set(results.all);
-    
-            //   this.isLoading.set(false);
-            },
-            error: (err) => {
-              console.error('Erreur lors du chargement des données', err);
-            //   this.isLoading.set(false);
-            },
-          });
-        }, 1000);
-    if (id) {
-      this.property.set(data);
+
+    forkJoin({
+      recent: this.http.get<PropertyDetails[]>('assets/data/recent_properties-details.json'),
+      // popular: this.http.get<PropertyDetails[]>('assets/data/popular_properties-details.json'),
+      similarProperties: this.http.get<PropertyDetails[]>('assets/data/properties.json'),
+    }).subscribe({
+      next: (results) => {
+        // Mise à jour de tes signaux respectifs
+        const propertyIndex = id ? Number(id) : null;
+        const found = results.recent.find((p) => p.id === propertyIndex);
+        this.property.set(found || null);
+        //   this.mostLikedProperties.set(results.popular);
+
+        this.similarProperties.set(
+          results.similarProperties.filter((p) => p.id !== propertyIndex).slice(0, 3),
+        );
+        console.log(results);
+        console.log('ICI');
+
+        //   this.properties.set(results.all);
+
+        //   this.isLoading.set(false);
+      },
+      error: (err) => {
+        console.error('Erreur lors du chargement des données', err);
+        //   this.isLoading.set(false);
+      },
+    });
+  }
+
+  //   Gallery Images
+  openGallery(index: number) {
+    this.currentImageIndex.set(index);
+    this.showLightbox.set(true);
+    document.body.style.overflow = 'hidden';
+  }
+  closeGallery() {
+    this.showLightbox.set(false);
+    document.body.style.overflow = 'auto';
+  }
+
+  nextImage(images: string[]) {
+    this.currentImageIndex.update((i) => (i + 1) % images.length);
+  }
+  prevImage(images: string[]) {
+    this.currentImageIndex.update((i) => (i - 1 + images.length) % images.length);
+  }
+
+  toggleMap() {
+    this.isMapMaximized.update((v) => !v);
+    if (this.isMapMaximized()) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
     }
-
-
   }
 }
-
-const data: PropertyDetails = {
-  id: 1,
-  title: 'Villa Moderne - ACI 2000',
-  price: 750000,
-  location: 'Bamako, Mali',
-  beds: 4,
-  baths: 3,
-  sqft: 250,
-  image: 'assets/main.jpg',
-  images: ['assets/main.jpg', 'assets/interior1.jpg', 'assets/interior2.jpg', 'assets/garden.jpg'],
-  type: 'Rent',
-  category: 'Villa',
-  period: 'month',
-  description: "Superbe villa située au coeur de l'ACI 2000, idéale pour bureau ou résidence...",
-  amenities: ['WiFi', 'Groupe Électrogène', 'Climatisation', 'Sécurité 24/7'],
-  agent: {
-    name: 'Moussa Diarra',
-    phone: '+223 00 00 00 00',
-    image: 'assets/agent.jpg',
-    verified: true,
-  },
-  features: {
-    yearBuilt: 2020,
-    floors: 3,
-    furnished: true,
-  },
-  isFavorite: false,
-};
