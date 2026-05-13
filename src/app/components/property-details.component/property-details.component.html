@@ -107,7 +107,7 @@
         </div>
 
         <div class="space-y-6">
-          <h3 class="text-2xl font-black">Ce que propose ce bien</h3>
+          <h3 class="text-2xl font-black">What this property offers</h3>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             @for (item of property()!.amenities; track item) {
               <div
@@ -119,16 +119,16 @@
             }
           </div>
         </div>
-        <!-- Section de la localisation -->
+        <!-- Location section -->
         <div class="space-y-6">
           <div class="flex items-center justify-between">
-            <h3 class="text-2xl font-black">Localisation</h3>
+            <h3 class="text-2xl font-black">Location</h3>
             <button
               (click)="toggleMap()"
               class="text-brand font-bold text-sm flex items-center gap-2 hover:underline"
             >
               <svg lucideMaximize2 class="w-4 h-4"></svg>
-              Agrandir la carte
+              Expand map
             </button>
           </div>
 
@@ -182,7 +182,7 @@
                 Book a Visit
               </button>
               <button
-                class="w-full bg-white/10 dark:bg-slate-100 border border-white/20 h-16 rounded-2xl font-black transition-all flex items-center justify-center gap-3"
+                class="w-full bg-white/10 dark:bg-slate-100 border border-white/20 h-16 rounded-2xl font-black transition-all flex items-center justify-center gap-3 text-main-bg dark:text-main-bg hover:bg-white/20 dark:hover:bg-slate-100/20 active:scale-95 shadow-md shadow-white/10"
               >
                 <svg lucideMessageCircle class="w-5 h-5"></svg>
                 Contact on WhatsApp
