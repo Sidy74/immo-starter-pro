@@ -45,9 +45,7 @@ export class PropertyDetailsComponent implements OnInit {
   isMapMaximized = signal(false);
 
   private route = inject(ActivatedRoute);
-  //   private propertyService = inject(PropertyService);
 
-  // Utilisation d'un signal pour la propriété
   property = signal<PropertyDetails | null>(null);
 
   stats = computed(() => {
@@ -55,9 +53,9 @@ export class PropertyDetailsComponent implements OnInit {
     if (!p) return [];
 
     return [
-      { label: 'Surface', value: `${p.sqft} m²` },
-      { label: 'Chambres', value: p.beds.toString() },
-      { label: 'Douches', value: p.baths.toString() },
+      { label: 'Area', value: `${p.sqft} m²` },
+      { label: 'Bedrooms', value: p.beds.toString() },
+      { label: 'Bathrooms', value: p.baths.toString() },
       { label: 'Type', value: p.category },
     ];
   });

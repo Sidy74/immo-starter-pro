@@ -35,7 +35,7 @@ export class FilterSection {
   showAdvanced = model(false);
 
   // --- Configuration ---
-  readonly categories = ['All', 'Villa', 'Apartment', 'Land', 'Penthouse', 'Studio', 'Office'];
+  readonly categories = ['All', 'Villa', 'Apartment', 'Land', 'Studio', 'Office'];
 
   // --- Actions ---
   onReset = output<void>();
