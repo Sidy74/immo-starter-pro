@@ -1,0 +1,78 @@
+<main class="h-screen flex flex-col bg-background overflow-hidden">
+  <div
+    class="pt-12 px-4 sm:px-6 lg:px-8 border-b border-border/50 bg-background/80 backdrop-blur-xl z-30"
+  >
+    <div class="max-w-7xl mx-auto">
+      <app-filter-section
+        [(searchQuery)]="searchQuery"
+        [(selectedCategory)]="selectedCategory"
+        [(maxPrice)]="maxPrice"
+        [(minBeds)]="minBeds"
+        [(viewMode)]="viewMode"
+      />
+    </div>
+  </div>
+
+  <div class="flex-1 overflow-y-auto custom-scrollbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      @if (viewMode() === 'grid') {
+        <!-- On utilise une div avec space-y-20 pour séparer les sections Bento -->
+        <div class="space-y-20">
+          <!-- ✨ Section Récents (Style Light) -->
+          <app-section-container
+            title="Récemment ajoutés"
+            subtitle="New Arrivals"
+            variant="light"
+            [isLoading]="isLoading()"
+            [items]="recentProperties()"
+            [skeletonCount]="getSkeletonCount(recentProperties())"
+          >
+            @for (p of recentProperties(); track p.id) {
+              <div class="min-w-[300px] md:min-w-[400px] snap-start">
+                <app-property-card [property]="p" />
+              </div>
+            }
+          </app-section-container>
+
+          <!-- 🔥 Section Populaires (Style Dark) -->
+          <app-section-container
+            title="Plus de 1000 likes"
+            subtitle="Popular Choice"
+            variant="dark"
+            [isLoading]="isLoading()"
+            [items]="mostLikedProperties()"
+            [skeletonCount]="getSkeletonCount(mostLikedProperties())"
+          >
+            @for (p of mostLikedProperties(); track p.id) {
+              <div class="min-w-[280px] md:min-w-[350px] snap-start">
+                <app-property-card [property]="p" />
+              </div>
+            }
+          </app-section-container>
+
+          <!-- 📋 Section Catalogue (Grille classique) -->
+          <div class="space-y-8">
+            <h3 class="text-2xl font-black text-main-text uppercase tracking-tight">
+              Toutes les propriétés
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              @for (p of filteredProperties(); track p.id) {
+                <app-property-card [property]="p" />
+              }
+            </div>
+          </div>
+        </div>
+      } @else {
+        <!-- Conteneur pour la future carte -->
+        <div
+          class="w-full h-[600px] rounded-[2.5rem] overflow-hidden border border-border bg-card-bg shadow-inner flex items-center justify-center animate-in zoom-in-95 duration-300"
+        >
+          <div class="text-center">
+            <svg lucideMap class="w-12 h-12 mx-auto text-brand mb-4 opacity-50"></svg>
+            <p class="text-text-muted font-bold">Map initialization...</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</main>

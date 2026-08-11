@@ -9,44 +9,7 @@
   </button>
 </div>
 
-<main class="max-w-7xl mx-auto px-4 pt-24 pb-12">
-  <app-filter-section
-    [(searchQuery)]="searchQuery"
-    [(selectedCategory)]="selectedCategory"
-    [(maxPrice)]="maxPrice"
-    [(minBeds)]="minBeds"
-    [(viewMode)]="viewMode"
-  />
-
-  @if (viewMode() === 'grid') {
-    <!-- GRILLE -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-      @for (p of filteredProperties(); track p.id) {
-        <app-property-card [property]="p" (toggleFavorite)="handleFavorite($event)" />
-      } @empty {
-        <div class="col-span-full py-24 text-center">
-          <div
-            class="bg-card-bg border border-border w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
-          >
-            <svg lucideSearchX class="w-10 h-10 text-text-muted opacity-20"></svg>
-          </div>
-          <h3 class="text-xl font-bold text-main-text mb-2">No results found</h3>
-          <p class="text-text-muted">Try adjusting your filters or search terms.</p>
-        </div>
-      }
-    </div>
-  } @else {
-    <!-- Conteneur pour la future carte -->
-    <div
-      class="w-full h-[600px] rounded-[2.5rem] overflow-hidden border border-border bg-card-bg shadow-inner flex items-center justify-center animate-in zoom-in-95 duration-300"
-    >
-      <div class="text-center">
-        <svg lucideMap class="w-12 h-12 mx-auto text-brand mb-4 opacity-50"></svg>
-        <p class="text-text-muted font-bold">Map initialization...</p>
-      </div>
-    </div>
-  }
-</main>
+  <app-property-list />
 
 <!-- Bouton Flottant Mobile pour la Map
 <div class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-[60]">
