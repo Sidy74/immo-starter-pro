@@ -1,31 +1,28 @@
-<button (click)="toggleDarkMode()" class="p-2 rounded bg-gray-100 dark:bg-neutral-800">
-  <!-- Icône Lucide Moon ou Sun ici -->
-  <svg lucideMoon class="dark:hidden"></svg>
-  <svg lucideSun class="hidden dark:block text-yellow-400"></svg>
-</button>
+<!-- Bouton Dark Mode (Positionné en haut à droite souvent) -->
+<div class="fixed top-6 right-6 z-50">
+  <button
+    (click)="toggleDarkMode()"
+    class="p-3 rounded-2xl bg-card-bg border border-border shadow-sm hover:scale-110 transition-all active:scale-90"
+  >
+    <svg lucideMoon class="w-5 h-5 dark:hidden text-main-text"></svg>
+    <svg lucideSun class="w-5 h-5 hidden dark:block text-yellow-400"></svg>
+  </button>
+</div>
 
-<section class="py-16 px-6 max-w-7xl mx-auto">
-  <!-- Header de la section -->
-  <div class="flex justify-between items-end mb-12">
-    <div>
-      <h2 class="text-4xl font-black text-main-text mb-2">Biens à la une</h2>
-      <p class="text-text-muted font-medium">Découvrez nos meilleures opportunités immobilières.</p>
-    </div>
-    <button
-      class="hidden md:block text-brand font-bold border-b-2 border-brand pb-1 hover:text-brand-hover transition-all"
-    >
-      Tout explorer
-    </button>
-  </div>
+  <app-property-list />
 
-  <!-- La Grille -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    @for (item of properties(); track item.id) {
-      <app-property-card [property]="item" (toggleFavorite)="handleFavorite($event)"></app-property-card>
-    } @empty {
-      <div class="col-span-full text-center py-20 bg-gray-50 rounded-3xl">
-        <p class="text-gray-400">Aucun bien ne correspond à votre recherche.</p>
-      </div>
+<!-- Bouton Flottant Mobile pour la Map
+<div class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-[60]">
+  <button 
+    (click)="viewMode.set(viewMode() === 'grid' ? 'map' : 'grid')"
+    class="flex items-center gap-2 bg-main-text text-white px-6 py-3.5 rounded-full shadow-2xl font-bold text-sm active:scale-90 transition-all border border-white/10"
+  >
+    @if (viewMode() === 'grid') {
+      <svg lucideMap class="w-4 h-4"></svg>
+      Afficher la carte
+    } @else {
+      <svg lucideLayoutGrid class="w-4 h-4"></svg>
+      Afficher la liste
     }
-  </div>
-</section>
+  </button>
+</div> -->

@@ -36,32 +36,7 @@
     "type": "Sale",
     "category": "Villa"
   },
-  {
-    "id": 4,
-    "title": "Minimalist Studio",
-    "location": "Hamdallaye ACI, Bamako",
-    "price": 450,
-    "beds": 1,
-    "baths": 1,
-    "sqft": 45,
-    "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=800",
-    "type": "Rent",
-    "category": "Apartment",
-    "period": "night"
-  },
-  {
-    "id": 5,
-    "title": "The Industrial Loft",
-    "location": "Quartier du Fleuve, Bamako",
-    "price": 185000,
-    "beds": 3,
-    "baths": 2,
-    "sqft": 210,
-    "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=800",
-    "type": "Sale",
-    "category": "Apartment",
-    "period": "year"
-  },
+  
   {
     "id": 6,
     "title": "Sunset View Residence",
@@ -74,17 +49,5 @@
     "type": "Rent",
     "category": "Villa",
     "period": "night"
-  },
-  {
-    "id": 7,
-    "title": "Downtown Prime Plot",
-    "location": "Avenue du Mali, Bamako",
-    "price": 75000,
-    "beds": 0,
-    "baths": 0,
-    "sqft": 1000,
-    "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=800",
-    "type": "Sale",
-    "category": "Land"
   }
 ]
