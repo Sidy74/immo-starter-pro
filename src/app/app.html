@@ -1,28 +1,10 @@
-<!-- Bouton Dark Mode (Positionné en haut à droite souvent) -->
-<div class="fixed top-6 right-6 z-50">
-  <button
-    (click)="toggleDarkMode()"
-    class="p-3 rounded-2xl bg-card-bg border border-border shadow-sm hover:scale-110 transition-all active:scale-90"
-  >
-    <svg lucideMoon class="w-5 h-5 dark:hidden text-main-text"></svg>
-    <svg lucideSun class="w-5 h-5 hidden dark:block text-yellow-400"></svg>
-  </button>
-</div>
+@if (!isAuthPage()) {
+  <app-navigation />
+}
 
-  <app-property-list />
-
-<!-- Bouton Flottant Mobile pour la Map
-<div class="md:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-[60]">
-  <button 
-    (click)="viewMode.set(viewMode() === 'grid' ? 'map' : 'grid')"
-    class="flex items-center gap-2 bg-main-text text-white px-6 py-3.5 rounded-full shadow-2xl font-bold text-sm active:scale-90 transition-all border border-white/10"
-  >
-    @if (viewMode() === 'grid') {
-      <svg lucideMap class="w-4 h-4"></svg>
-      Afficher la carte
-    } @else {
-      <svg lucideLayoutGrid class="w-4 h-4"></svg>
-      Afficher la liste
-    }
-  </button>
-</div> -->
+<main
+  class="bg-background transition-colors duration-500 min-h-screen"
+  [class.pt-16]="!isAuthPage()"
+>
+  <router-outlet />
+</main>

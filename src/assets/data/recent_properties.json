@@ -1,6 +1,6 @@
 [
   {
-    "id": 4,
+    "id": 9,
     "title": "Minimalist Studio",
     "location": "Hamdallaye ACI, Bamako",
     "price": 450,
@@ -10,10 +10,11 @@
     "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&q=80&w=800",
     "type": "Rent",
     "category": "Apartment",
-    "period": "night"
+    "period": "night",
+    "coordinates": { "lat": 12.6285, "lng": -8.025 }
   },
   {
-    "id": 5,
+    "id": 10,
     "title": "The Industrial Loft",
     "location": "Quartier du Fleuve, Bamako",
     "price": 185000,
@@ -23,7 +24,8 @@
     "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
     "category": "Apartment",
-    "period": "year"
+    "period": "year",
+    "coordinates": { "lat": 12.637, "lng": -8.005 }
   },
   {
     "id": 11,
@@ -40,7 +42,8 @@
     "rating": 4.9,
     "isFavorite": true,
     "amenities": ["River View", "Security", "Gym", "Pool"],
-    "yearBuilt": 2025
+    "yearBuilt": 2025,
+    "coordinates": { "lat": 12.631, "lng": -7.988 }
   },
   {
     "id": 12,
@@ -56,7 +59,8 @@
     "rating": 4.2,
     "isFavorite": false,
     "amenities": ["Garden", "Solar Power", "Borehole"],
-    "yearBuilt": 2022
+    "yearBuilt": 2022,
+    "coordinates": { "lat": 12.67, "lng": -7.94 }
   },
   {
     "id": 13,
@@ -73,7 +77,8 @@
     "rating": 4.7,
     "isFavorite": true,
     "amenities": ["Fiber Optic", "Smart Lock", "Elevator"],
-    "yearBuilt": 2026
+    "yearBuilt": 2026,
+    "coordinates": { "lat": 12.624, "lng": -8.021 }
   },
   {
     "id": 14,
@@ -89,7 +94,8 @@
     "rating": 4.0,
     "isFavorite": false,
     "amenities": ["Road Access", "Water Connection"],
-    "yearBuilt": 2024
+    "yearBuilt": 2024,
+    "coordinates": { "lat": 12.678, "lng": -7.915 }
   },
   {
     "id": 15,
@@ -105,7 +111,8 @@
     "rating": 5.0,
     "isFavorite": true,
     "amenities": ["Cinema Room", "Infinity Pool", "Wine Cellar"],
-    "yearBuilt": 2025
+    "yearBuilt": 2025,
+    "coordinates": { "lat": 12.605, "lng": -8.07 }
   },
   {
     "id": 16,
@@ -122,7 +129,8 @@
     "rating": 4.3,
     "isFavorite": false,
     "amenities": ["Parking", "Balcony", "Gated"],
-    "yearBuilt": 2021
+    "yearBuilt": 2021,
+    "coordinates": { "lat": 12.588, "lng": -7.992 }
   },
   {
     "id": 17,
@@ -139,7 +147,8 @@
     "rating": 4.8,
     "isFavorite": true,
     "amenities": ["Nature View", "Solar Energy", "Fire Pit"],
-    "yearBuilt": 2023
+    "yearBuilt": 2023,
+    "coordinates": { "lat": 12.385, "lng": -8.321 }
   },
   {
     "id": 18,
@@ -156,7 +165,8 @@
     "rating": 4.5,
     "isFavorite": false,
     "amenities": ["Fiber Optic", "Conference Room", "Cafe"],
-    "yearBuilt": 2024
+    "yearBuilt": 2024,
+    "coordinates": { "lat": 12.602, "lng": -7.965 }
   },
   {
     "id": 19,
@@ -172,7 +182,8 @@
     "rating": 4.6,
     "isFavorite": true,
     "amenities": ["Modern Kitchen", "AC", "Laundry"],
-    "yearBuilt": 2025
+    "yearBuilt": 2025,
+    "coordinates": { "lat": 12.615, "lng": -7.952 }
   },
   {
     "id": 20,
@@ -188,10 +199,11 @@
     "rating": 4.1,
     "isFavorite": false,
     "amenities": ["Fruit Trees", "Fenced"],
-    "yearBuilt": 2023
+    "yearBuilt": 2023,
+    "coordinates": { "lat": 12.625, "lng": -7.785 }
   },
   {
-    "id": 101,
+    "id": 21,
     "title": "Riverside Penthouse",
     "location": "Badalabougou, Bamako",
     "price": 320000,
@@ -200,10 +212,11 @@
     "sqft": 420,
     "image": "https://images.unsplash.com/photo-1600607687940-c52af04657b0?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Apartment"
+    "category": "Apartment",
+    "coordinates": { "lat": 12.625, "lng": -7.995 }
   },
   {
-    "id": 102,
+    "id": 22,
     "title": "Cozy Garden Cottage",
     "location": "Sotuba, Bamako",
     "price": 750,
@@ -213,10 +226,11 @@
     "image": "https://images.unsplash.com/photo-1580587771525-78b9bed3b928?auto=format&fit=crop&q=80&w=800",
     "type": "Rent",
     "category": "Villa",
-    "period": "night"
+    "period": "night",
+    "coordinates": { "lat": 12.652, "lng": -7.935 }
   },
   {
-    "id": 103,
+    "id": 23,
     "title": "Commercial Business Plot",
     "location": "Missabougou, Bamako",
     "price": 125000,
@@ -225,10 +239,11 @@
     "sqft": 1500,
     "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Land"
+    "category": "Land",
+    "coordinates": { "lat": 12.68, "lng": -7.9 }
   },
   {
-    "id": 104,
+    "id": 24,
     "title": "Modern Glass Villa",
     "location": "Sébénikoro, Bamako",
     "price": 250000,
@@ -237,10 +252,11 @@
     "sqft": 350,
     "image": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&q=80&w=800",
     "type": "Sale",
-    "category": "Villa"
+    "category": "Villa",
+    "coordinates": { "lat": 12.61, "lng": -8.06 }
   },
   {
-    "id": 105,
+    "id": 25,
     "title": "Luxury Sky Apartment",
     "location": "ACI 2000, Bamako",
     "price": 1200,
@@ -250,6 +266,7 @@
     "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&q=80&w=800",
     "type": "Rent",
     "category": "Apartment",
-    "period": "month"
+    "period": "month",
+    "coordinates": { "lat": 12.608, "lng": -7.921 }
   }
 ]

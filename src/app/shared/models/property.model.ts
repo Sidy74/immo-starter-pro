@@ -1,3 +1,12 @@
+export interface GeoPoint {
+  lat: number;
+  lng: number;
+}
+
+export type PropertyCategory = 'Villa' | 'Apartment' | 'Land';
+export type ListingType = 'Sale' | 'Rent';
+export type RentalPeriod = 'night' | 'day' | 'month' | 'year';
+
 export interface Property {
   id: number;
   title: string;
@@ -7,10 +16,32 @@ export interface Property {
   baths: number;
   sqft: number;
   image: string;
-  /** 'Sale' for Vente, 'Rent' for Location */
-  type: 'Sale' | 'Rent'; 
-  /** Property categories */
-  category: 'Villa' | 'Apartment' | 'Land';
-  /** Optional period: 'night' | 'day' | 'month' | 'year' */
-  period?: 'night' | 'day' | 'month' | 'year';
+  type: ListingType;
+  category: PropertyCategory;
+  period?: RentalPeriod;
+  coordinates?: GeoPoint;
+}
+
+export interface PropertyMapData {
+  property: Property;
+  position: GeoPoint;
+}
+
+export interface PropertyDetails extends Property {
+  images: string[]; // Tableau pour la galerie Bento (CDC A.16)
+  description: string; // Texte descriptif pour l'acheteur
+  amenities: string[]; // Liste (Composition) : WiFi, Piscine, Sécurité...
+  agent: {
+    // Infos pour la section Réservation
+    name: string;
+    phone: string;
+    image: string;
+    verified: boolean;
+  };
+  features: {
+    yearBuilt?: number;
+    floors?: number;
+    furnished: boolean;
+  };
+  isFavorite?: boolean;
 }
