@@ -28,7 +28,7 @@
           <!-- ✨ Section Récents (Style Light) -->
           @if (filteredRecent().length > 0) {
             <app-section-container
-              title="Récemment ajoutés"
+              title="Recently added"
               subtitle="New Arrivals"
               variant="light"
               [isLoading]="isLoading()"
@@ -45,7 +45,7 @@
           <!-- 🔥 Section Populaires (Style Dark) -->
           @if (filteredPopular().length > 0) {
             <app-section-container
-              title="Plus de 1000 likes"
+              title="Over 1000 likes"
               subtitle="Popular Choice"
               variant="dark"
               [isLoading]="isLoading()"
@@ -65,10 +65,10 @@
             @if (!hasActiveFilters() && filteredProperties.length <= 0) {
               <div class="space-y-1">
                 <p class="text-[10px] font-black uppercase tracking-[0.3em] text-brand">
-                  De tout genre
+                  All kinds
                 </p>
                 <h2 class="text-2xl md:text-4xl font-black tracking-tight">
-                  Toutes les propriétés
+                  All properties
                 </h2>
               </div>
             }
@@ -96,7 +96,7 @@
           class="rounded-none md:rounded-[2.5rem] mx-2 mt-2 overflow-hidden border-y md:border border-border bg-card-bg shadow-2xl animate-in zoom-in-95 duration-500 relative"
         >
           <app-map-view
-            [properties]="[...filteredRecent(), ...filteredPopular(), ...filteredProperties()]"
+            [properties]="allProperties()"
           />
 
           <div class="absolute top-4 left-6 z-[400] pointer-events-none">
@@ -105,7 +105,7 @@
             >
               <div class="w-2 h-2 bg-brand rounded-full"></div>
               <span class="text-[10px] font-bold text-main-text uppercase tracking-wider">
-                {{[...filteredRecent(), ...filteredPopular(), ...filteredProperties()].length }} propriétés
+                {{allProperties().length }} properties
               </span>
             </div>
           </div>

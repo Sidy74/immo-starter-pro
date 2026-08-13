@@ -1,6 +1,6 @@
 import { Component, signal, HostListener, inject } from '@angular/core';
 import {
-  LucideHome,
+  LucideHouse,
   LucideSearch,
   LucideHeart,
   LucideUser,
@@ -10,12 +10,13 @@ import {
   LucideBell,
 } from '@lucide/angular';
 import { NavigationService } from '../../shared/services/navigation.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
   imports: [
-    LucideHome,
+    LucideHouse,
     LucideSun,
     LucideSearch,
     LucideHeart,
@@ -23,6 +24,7 @@ import { NavigationService } from '../../shared/services/navigation.service';
     LucideUser,
     LucideMap,
     LucideMoon,
+    RouterLink,
   ],
   templateUrl: './navigation.component.html',
 })

@@ -6,6 +6,7 @@ import {
   ViewChild,
   AfterViewInit,
   OnDestroy,
+  input,
 } from '@angular/core';
 import * as L from 'leaflet';
 import { Property } from '../../shared/models/property.model';
@@ -18,15 +19,16 @@ import { Property } from '../../shared/models/property.model';
 })
 export class MapView implements AfterViewInit, OnDestroy {
   @ViewChild('mapContainer') mapContainer!: ElementRef;
-  @Input({ required: true }) properties: Property[] = [];
-
+  properties = input.required<Property[]>();
   private map!: L.Map;
   private markerGroup = L.featureGroup();
 
   constructor() {
     effect(() => {
-      if (this.map && this.properties) {
-        console.log('UpdateMarkers déclenché avec:', this.properties.length, 'biens');
+      const props = this.properties();
+
+      if (this.map) {
+        console.log('UpdateMarkers déclenché avec:', props.length, 'biens');
         this.updateMarkers();
       }
     });
@@ -38,7 +40,6 @@ export class MapView implements AfterViewInit, OnDestroy {
   }
 
   private initMap(): void {
-
     const houseSvg = `
     <div style="color: #ff4d4d; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.25)); transform: translateY(-3px);">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -97,7 +98,7 @@ export class MapView implements AfterViewInit, OnDestroy {
 
     this.markerGroup.clearLayers();
 
-    this.properties.forEach((p) => {
+    this.properties().forEach((p) => {
       // DEBUG: Vérifie si p.coordinates existe bien
       if (p.coordinates && p.coordinates.lat && p.coordinates.lng) {
         const popupContent = `

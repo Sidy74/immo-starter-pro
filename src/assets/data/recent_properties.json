@@ -1,6 +1,6 @@
 [
   {
-    "id": 4,
+    "id": 9,
     "title": "Minimalist Studio",
     "location": "Hamdallaye ACI, Bamako",
     "price": 450,
@@ -14,7 +14,7 @@
     "coordinates": { "lat": 12.6285, "lng": -8.025 }
   },
   {
-    "id": 5,
+    "id": 10,
     "title": "The Industrial Loft",
     "location": "Quartier du Fleuve, Bamako",
     "price": 185000,
@@ -203,7 +203,7 @@
     "coordinates": { "lat": 12.625, "lng": -7.785 }
   },
   {
-    "id": 101,
+    "id": 21,
     "title": "Riverside Penthouse",
     "location": "Badalabougou, Bamako",
     "price": 320000,
@@ -216,7 +216,7 @@
     "coordinates": { "lat": 12.625, "lng": -7.995 }
   },
   {
-    "id": 102,
+    "id": 22,
     "title": "Cozy Garden Cottage",
     "location": "Sotuba, Bamako",
     "price": 750,
@@ -230,7 +230,7 @@
     "coordinates": { "lat": 12.652, "lng": -7.935 }
   },
   {
-    "id": 103,
+    "id": 23,
     "title": "Commercial Business Plot",
     "location": "Missabougou, Bamako",
     "price": 125000,
@@ -243,7 +243,7 @@
     "coordinates": { "lat": 12.68, "lng": -7.9 }
   },
   {
-    "id": 104,
+    "id": 24,
     "title": "Modern Glass Villa",
     "location": "Sébénikoro, Bamako",
     "price": 250000,
@@ -256,7 +256,7 @@
     "coordinates": { "lat": 12.61, "lng": -8.06 }
   },
   {
-    "id": 105,
+    "id": 25,
     "title": "Luxury Sky Apartment",
     "location": "ACI 2000, Bamako",
     "price": 1200,

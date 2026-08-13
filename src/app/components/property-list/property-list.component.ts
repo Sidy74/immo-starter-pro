@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, computed, inject, signal } from '@angular/core';
-import { Property } from '../../models/property.model';
-import { FilterSection } from '../../../components/filter-section/filter-section';
-import { PropertyCard } from '../property-card/property-card.component';
-import { SectionContainerComponent } from '../../../components/section-container/section-container.component';
+import { Property } from '../../shared/models/property.model';
+import { FilterSection } from '../filter-section/filter-section';
+import { PropertyCard } from '../../shared/components/property-card/property-card.component';
+import { SectionContainerComponent } from '../section-container/section-container.component';
 import { forkJoin } from 'rxjs';
-import { NavigationService } from '../../services/navigation.service';
-import { MapView } from '../../../components/map-view.component/map-view.component';
+import { NavigationService } from '../../shared/services/navigation.service';
+import { MapView } from '../map-view.component/map-view.component';
 
 @Component({
   selector: 'app-property-list',
@@ -67,6 +67,12 @@ export class PropertyList {
   // 3. Filtrage pour le Catalogue complet
   filteredProperties = computed(() => this.properties().filter((p) => this.applyFilters(p)));
 
+
+  allProperties = computed(() => [
+  ...this.filteredRecent(),
+  ...this.filteredPopular(),
+  ...this.filteredProperties()
+]);
 
   updateSearch(event: Event) {
     const value = (event.target as HTMLInputElement).value;
